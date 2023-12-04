@@ -5,17 +5,17 @@ defmodule RealDealApi.AccountsFixtures do
   """
 
   @doc """
-  Generate a acccount.
+  Generate a account.
   """
-  def acccount_fixture(attrs \\ %{}) do
-    {:ok, acccount} =
+  def account_fixture(attrs \\ %{}) do
+    {:ok, account} =
       attrs
       |> Enum.into(%{
         email: "some email",
         hash_password: "some hash_password"
       })
-      |> RealDealApi.Accounts.create_acccount()
+      |> RealDealApi.Accounts.create_account()
 
-    acccount
+    account
   end
 end

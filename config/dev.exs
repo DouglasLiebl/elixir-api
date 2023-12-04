@@ -23,7 +23,7 @@ config :real_deal_api, RealDealApiWeb.Endpoint,
   check_origin: false,
   code_reloader: true,
   debug_errors: true,
-  secret_key_base: "W7o482nIamXx/ifmSYc+1YchkHDRLyymErzQ7ssw/wPWBeWN2g3bkcZtkXKRPDgU",
+  secret_key_base: "nUV4MKQCuHMcimEC7ONoEFJEf+EGqfClzN3tFJJNDl2w0fNm/2mULAe2zK14GNik",
   watchers: []
 
 # ## SSL Support

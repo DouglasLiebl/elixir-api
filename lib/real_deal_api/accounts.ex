@@ -6,7 +6,7 @@ defmodule RealDealApi.Accounts do
   import Ecto.Query, warn: false
   alias RealDealApi.Repo
 
-  alias RealDealApi.Accounts.Acccount
+  alias RealDealApi.Accounts.Account
 
   @doc """
   Returns the list of tb_accounts.
@@ -14,91 +14,91 @@ defmodule RealDealApi.Accounts do
   ## Examples
 
       iex> list_tb_accounts()
-      [%Acccount{}, ...]
+      [%Account{}, ...]
 
   """
   def list_tb_accounts do
-    Repo.all(Acccount)
+    Repo.all(Account)
   end
 
   @doc """
-  Gets a single acccount.
+  Gets a single account.
 
-  Raises `Ecto.NoResultsError` if the Acccount does not exist.
+  Raises `Ecto.NoResultsError` if the Account does not exist.
 
   ## Examples
 
-      iex> get_acccount!(123)
-      %Acccount{}
+      iex> get_account!(123)
+      %Account{}
 
-      iex> get_acccount!(456)
+      iex> get_account!(456)
       ** (Ecto.NoResultsError)
 
   """
-  def get_acccount!(id), do: Repo.get!(Acccount, id)
+  def get_account!(id), do: Repo.get!(Account, id)
 
   @doc """
-  Creates a acccount.
+  Creates a account.
 
   ## Examples
 
-      iex> create_acccount(%{field: value})
-      {:ok, %Acccount{}}
+      iex> create_account(%{field: value})
+      {:ok, %Account{}}
 
-      iex> create_acccount(%{field: bad_value})
+      iex> create_account(%{field: bad_value})
       {:error, %Ecto.Changeset{}}
 
   """
-  def create_acccount(attrs \\ %{}) do
-    %Acccount{}
-    |> Acccount.changeset(attrs)
+  def create_account(attrs \\ %{}) do
+    %Account{}
+    |> Account.changeset(attrs)
     |> Repo.insert()
   end
 
   @doc """
-  Updates a acccount.
+  Updates a account.
 
   ## Examples
 
-      iex> update_acccount(acccount, %{field: new_value})
-      {:ok, %Acccount{}}
+      iex> update_account(account, %{field: new_value})
+      {:ok, %Account{}}
 
-      iex> update_acccount(acccount, %{field: bad_value})
+      iex> update_account(account, %{field: bad_value})
       {:error, %Ecto.Changeset{}}
 
   """
-  def update_acccount(%Acccount{} = acccount, attrs) do
-    acccount
-    |> Acccount.changeset(attrs)
+  def update_account(%Account{} = account, attrs) do
+    account
+    |> Account.changeset(attrs)
     |> Repo.update()
   end
 
   @doc """
-  Deletes a acccount.
+  Deletes a account.
 
   ## Examples
 
-      iex> delete_acccount(acccount)
-      {:ok, %Acccount{}}
+      iex> delete_account(account)
+      {:ok, %Account{}}
 
-      iex> delete_acccount(acccount)
+      iex> delete_account(account)
       {:error, %Ecto.Changeset{}}
 
   """
-  def delete_acccount(%Acccount{} = acccount) do
-    Repo.delete(acccount)
+  def delete_account(%Account{} = account) do
+    Repo.delete(account)
   end
 
   @doc """
-  Returns an `%Ecto.Changeset{}` for tracking acccount changes.
+  Returns an `%Ecto.Changeset{}` for tracking account changes.
 
   ## Examples
 
-      iex> change_acccount(acccount)
-      %Ecto.Changeset{data: %Acccount{}}
+      iex> change_account(account)
+      %Ecto.Changeset{data: %Account{}}
 
   """
-  def change_acccount(%Acccount{} = acccount, attrs \\ %{}) do
-    Acccount.changeset(acccount, attrs)
+  def change_account(%Account{} = account, attrs \\ %{}) do
+    Account.changeset(account, attrs)
   end
 end

@@ -9,14 +9,14 @@ defmodule RealDealApi.Users.User do
     field :gender, :string
     field :biography, :string
     belongs_to :account, RealDealApi.Accounts.Account
-    
+
     timestamps(type: :utc_datetime)
   end
 
   @doc false
   def changeset(user, attrs) do
     user
-    |> cast(attrs, [:account_id, :full_name, :gender, :biography])
+    |> cast(attrs, [:full_name, :gender, :biography])
     |> validate_required([:account_id])
   end
 end

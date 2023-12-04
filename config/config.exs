@@ -20,7 +20,7 @@ config :real_deal_api, RealDealApiWeb.Endpoint,
     layout: false
   ],
   pubsub_server: RealDealApi.PubSub,
-  live_view: [signing_salt: "To47eMbl"]
+  live_view: [signing_salt: "8GZnKFzK"]
 
 # Configures Elixir's Logger
 config :logger, :console,

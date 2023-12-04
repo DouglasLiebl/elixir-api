@@ -17,7 +17,7 @@ config :real_deal_api, RealDealApi.Repo,
 # you can enable the server option below.
 config :real_deal_api, RealDealApiWeb.Endpoint,
   http: [ip: {127, 0, 0, 1}, port: 4002],
-  secret_key_base: "hwIJe54eIwAJuuHjfVEkEiCGwhk7phgc/ppU588Hg6Fm81b2G5kaHPUP0HprM+1Z",
+  secret_key_base: "J2Li/RIp0+B28gm/+0GIMl64fPKXsvFb7J4gkffGsgEsSG8xihn43XDNK13k8Di1",
   server: false
 
 # Print only warnings and errors during test

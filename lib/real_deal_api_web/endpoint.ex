@@ -7,7 +7,7 @@ defmodule RealDealApiWeb.Endpoint do
   @session_options [
     store: :cookie,
     key: "_real_deal_api_key",
-    signing_salt: "Zt9VIIj7",
+    signing_salt: "emC7zqX9",
     same_site: "Lax"
   ]
 

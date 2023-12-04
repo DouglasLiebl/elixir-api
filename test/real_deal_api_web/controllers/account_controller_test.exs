@@ -1,9 +1,9 @@
-defmodule RealDealApiWeb.AcccountControllerTest do
+defmodule RealDealApiWeb.AccountControllerTest do
   use RealDealApiWeb.ConnCase
 
   import RealDealApi.AccountsFixtures
 
-  alias RealDealApi.Accounts.Acccount
+  alias RealDealApi.Accounts.Account
 
   @create_attrs %{
     email: "some email",
@@ -26,9 +26,9 @@ defmodule RealDealApiWeb.AcccountControllerTest do
     end
   end
 
-  describe "create acccount" do
-    test "renders acccount when data is valid", %{conn: conn} do
-      conn = post(conn, ~p"/api/tb_accounts", acccount: @create_attrs)
+  describe "create account" do
+    test "renders account when data is valid", %{conn: conn} do
+      conn = post(conn, ~p"/api/tb_accounts", account: @create_attrs)
       assert %{"id" => id} = json_response(conn, 201)["data"]
 
       conn = get(conn, ~p"/api/tb_accounts/#{id}")
@@ -41,16 +41,16 @@ defmodule RealDealApiWeb.AcccountControllerTest do
     end
 
     test "renders errors when data is invalid", %{conn: conn} do
-      conn = post(conn, ~p"/api/tb_accounts", acccount: @invalid_attrs)
+      conn = post(conn, ~p"/api/tb_accounts", account: @invalid_attrs)
       assert json_response(conn, 422)["errors"] != %{}
     end
   end
 
-  describe "update acccount" do
-    setup [:create_acccount]
+  describe "update account" do
+    setup [:create_account]
 
-    test "renders acccount when data is valid", %{conn: conn, acccount: %Acccount{id: id} = acccount} do
-      conn = put(conn, ~p"/api/tb_accounts/#{acccount}", acccount: @update_attrs)
+    test "renders account when data is valid", %{conn: conn, account: %Account{id: id} = account} do
+      conn = put(conn, ~p"/api/tb_accounts/#{account}", account: @update_attrs)
       assert %{"id" => ^id} = json_response(conn, 200)["data"]
 
       conn = get(conn, ~p"/api/tb_accounts/#{id}")
@@ -62,27 +62,27 @@ defmodule RealDealApiWeb.AcccountControllerTest do
              } = json_response(conn, 200)["data"]
     end
 
-    test "renders errors when data is invalid", %{conn: conn, acccount: acccount} do
-      conn = put(conn, ~p"/api/tb_accounts/#{acccount}", acccount: @invalid_attrs)
+    test "renders errors when data is invalid", %{conn: conn, account: account} do
+      conn = put(conn, ~p"/api/tb_accounts/#{account}", account: @invalid_attrs)
       assert json_response(conn, 422)["errors"] != %{}
     end
   end
 
-  describe "delete acccount" do
-    setup [:create_acccount]
+  describe "delete account" do
+    setup [:create_account]
 
-    test "deletes chosen acccount", %{conn: conn, acccount: acccount} do
-      conn = delete(conn, ~p"/api/tb_accounts/#{acccount}")
+    test "deletes chosen account", %{conn: conn, account: account} do
+      conn = delete(conn, ~p"/api/tb_accounts/#{account}")
       assert response(conn, 204)
 
       assert_error_sent 404, fn ->
-        get(conn, ~p"/api/tb_accounts/#{acccount}")
+        get(conn, ~p"/api/tb_accounts/#{account}")
       end
     end
   end
 
-  defp create_acccount(_) do
-    acccount = acccount_fixture()
-    %{acccount: acccount}
+  defp create_account(_) do
+    account = account_fixture()
+    %{account: account}
   end
 end

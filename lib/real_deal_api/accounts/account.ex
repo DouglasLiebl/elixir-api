@@ -7,7 +7,7 @@ defmodule RealDealApi.Accounts.Account do
   schema "tb_accounts" do
     field :email, :string
     field :hash_password, :string
-    has_one :user, RealDealApi.Users.User
+    has_one :user, RealDealApi.Users.User 
 
     timestamps(type: :utc_datetime)
   end
