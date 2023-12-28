@@ -30,6 +30,9 @@ config :logger, :console,
 # Use Jason for JSON parsing in Phoenix
 config :phoenix, :json_library, Jason
 
+config :real_deal_api, RealDealApiWeb.Auth.Guardian,
+    issuer: "real_deal_api",
+    secret_key: "KjdaHape4WY3ivh+cXGweQ80V4a+DQdo9n6oZ5pwhKAL+NuG11XO4Q1ESQfZ4Yby"
 # Import environment specific config. This must remain at the bottom
 # of this file so it overrides the configuration defined above.
 import_config "#{config_env()}.exs"

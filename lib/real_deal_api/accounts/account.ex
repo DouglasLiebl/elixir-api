@@ -7,7 +7,7 @@ defmodule RealDealApi.Accounts.Account do
   schema "tb_accounts" do
     field :email, :string
     field :hash_password, :string
-    has_one :user, RealDealApi.Users.User 
+    has_one :user, RealDealApi.Users.User
 
     timestamps(type: :utc_datetime)
   end
@@ -20,5 +20,12 @@ defmodule RealDealApi.Accounts.Account do
     |> validate_format(:email, ~r/^[^\s]+@[^\s]+$/, message: "Must have the @ sign and no spaces.")
     |> validate_length(:email, max: 160)
     |> unique_constraint(:email)
+    |> put_password_hash()
   end
+
+  defp put_password_hash(%Ecto.Changeset{valid?: true, changes: %{hash_password: hash_password}} = changeset) do
+    change(changeset, hash_password: Bcrypt.hash_pwd_salt(hash_password))
+  end
+
+  defp put_password_hash(changeset), do: changeset
 end
